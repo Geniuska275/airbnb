@@ -2,15 +2,15 @@ import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaUserCircle, FaInternetExplorer } from "react-icons/fa";
-
+import air from "./airbnb.jpg";
 export default function Header() {
   return (
     <div className="flex justify-around p-2 shadow-sm items-center sticky top-0 z-10 bg-white">
-      <div className="">
-        <h1 className="text-center  text-[#f25058] font-bold text-2xl">
+      <div>
+        {/* <h1 className="text-center  text-[#f25058] font-bold text-2xl">
           Airbnb
-        </h1>
-        {/* <img src="airbnb.jpg" alt="airbnb logo" /> */}
+        </h1> */}
+        <img src={air} alt="image" style={{ width: "200px" }} />
       </div>
 
       <div className=" flex  justify-around shadow-lg rounded-full  items-center  p-1 w-[400px] shadow-md gap-3 hover:shadow-lg">
