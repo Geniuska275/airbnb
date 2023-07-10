@@ -6,7 +6,7 @@ export default function Toggler({ setTaxes }) {
       <div className="flex justify-between  items-center rounded-lg border border-gray-200 p-6 gap-7 w-[600px] ">
         <div className=" md:flex gap-2 md:items-center">
           <h2 className="font-bold text-black">Display Total Price</h2>
-          <h2 className="font-bold text-gray-500 md:border-l-2 md:p-1">
+          <h2 className="font-bold text-[#b6b6b6] md:border-l-2 md:p-1">
             Include all fees,before taxes
           </h2>
         </div>
