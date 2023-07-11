@@ -4,7 +4,7 @@ export default function Card({ houses, taxes }) {
   return (
     <>
       {houses.map((house, i) => (
-        <div className="mb-4 w-[400px] h-[400px]" key={i}>
+        <div className="mb-4 w-[300px] h-[300px]" key={i}>
           <div className="relative">
             <Carousel
               slides={house.slides}

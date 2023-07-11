@@ -4,7 +4,7 @@ import { CgProfile } from "react-icons/cg";
 
 export default function Footer() {
   return (
-    <div className="flex justify-center items-center shadow mt-6 p-3">
+    <div className="flex justify-center items-center shadow mt-6 p-3 sticky bottom-0 bg-white">
       <div className="mr-[100px]">
         <FiSearch className="text-[#b6b6b6] ml-3 text-2xl " />
         <h5 className="text-[#b6b6b6] font-Poppins">Explore</h5>
