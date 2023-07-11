@@ -7,6 +7,8 @@ import DefaultCarousel from "./components/carousel";
 import StaticCarousel from "./components/carousel";
 import Navigation from "./components/navigation";
 import Toggler from "./components/toggler";
+import Footer from "./components/Footer";
+
 import { useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -99,7 +101,7 @@ function App() {
           <div className=" flex-1 md:flex justify-evenly items-center gap-6">
             <Card houses={houses} taxes={taxes} />
           </div>
-        </div>
+        </div>4v
 
         <div className="flex justify-center items-center">
           <div className=" bg-black text-white rounded-full p-2 flex justify-around items-center z-10">
@@ -107,6 +109,7 @@ function App() {
             <PiFlag className="text-white" />
           </div>
         </div>
+        <Footer/>
       </div>
     </SkeletonTheme>
   );
