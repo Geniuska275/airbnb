@@ -4,7 +4,7 @@ export default function Card({ houses, taxes }) {
   return (
     <>
       {houses.map((house, i) => (
-        <div className="m-3" key={i}>
+        <div className="mb-4 w-[400px] h-[400px]" key={i}>
           <div className="relative">
             <Carousel
               slides={house.slides}
@@ -23,18 +23,18 @@ export default function Card({ houses, taxes }) {
               </h2>
             </div>
 
-            <h3 className=" text-gray-500">{house.distance}</h3>
-            <h3 className=" text-gray-500">{house.date}</h3>
+            <h3 className=" text-[#b6b6b6]">{house.distance}</h3>
+            <h3 className=" text-[#b6b6b6]">{house.date}</h3>
 
             {!taxes ? (
               <h3 className="font-bold text-black">
                 {house.amount},
-                <span className="text-gray-500 ml-1">{house.time}</span>
+                <span className="text-[#b6b6b6] ml-1">{house.time}</span>
               </h3>
             ) : (
-              <h3 className=" underline tracking-wide">
-                <span className="font-bold text-black ">{house.taxes}</span>
-                total before taxes
+              <h3 className=" underline tracking-wide text-[#b6b6b6]">
+                <span className="font-bold text-black  ">{house.taxes}</span>
+                <span className="ml-1">total before taxes</span>
               </h3>
             )}
           </div>

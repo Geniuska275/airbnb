@@ -27,8 +27,8 @@ function App() {
       location: "Nigeria,Lagos",
       distance: "5,400 Kilometers away",
       date: "jul 17-24",
-      amount: "$6,600",
-      taxes: "$5,000",
+      amount: "$670",
+      taxes: "$550",
 
       time: "Night",
       rate: "4.6",
@@ -45,9 +45,9 @@ function App() {
       location: "Oyo State,ibadan",
       distance: "9,400 Kilometers away",
       date: "jul 17-24",
-      taxes: "$5,800",
+      taxes: "$730",
 
-      amount: "$8,600",
+      amount: "$820",
       time: "Night",
       rate: "5.8",
     },
@@ -61,9 +61,9 @@ function App() {
       location: "Edo state,benin",
       distance: "5,700 Kilometers away",
       date: "jul 17-24",
-      taxes: "$5,600",
+      taxes: "$560",
 
-      amount: "$6,600",
+      amount: "$680",
       time: "Night",
       rate: "4.9",
     },
@@ -80,9 +80,9 @@ function App() {
       location: "Abuja",
       distance: "5,400 Kilometers away",
       date: "jul 17-24",
-      taxes: "$5,000",
+      taxes: "$200",
 
-      amount: "$6,600",
+      amount: "$250",
       time: "Night",
       rate: "5.7",
     },
@@ -97,13 +97,15 @@ function App() {
             {<Card houses={houses} taxes={taxes} /> || <Skeleton />}
           </div>
           <div className=" flex-1 md:flex justify-evenly items-center gap-6">
-            <Card houses={houses} />
+            <Card houses={houses} taxes={taxes} />
           </div>
         </div>
 
-        <div className="fixed  bottom-5 left-[700px] gap-1 bg-black text-white rounded-full p-2 flex justify-around items-center z-10">
-          <h3 className="font-bold text-white">Show map</h3>
-          <PiFlag className="text-white" />
+        <div className="flex justify-center items-center">
+          <div className=" bg-black text-white rounded-full p-2 flex justify-around items-center z-10">
+            <h3 className="font-bold text-white">Show map</h3>
+            <PiFlag className="text-white" />
+          </div>
         </div>
       </div>
     </SkeletonTheme>
