@@ -8,6 +8,7 @@ import StaticCarousel from "./components/carousel";
 import Navigation from "./components/navigation";
 import Toggler from "./components/toggler";
 import Footer from "./components/Footer";
+import Filter from "./components/filter";
 
 import { useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -93,6 +94,7 @@ function App() {
     <SkeletonTheme baseColor="#313131" highlightColor="525252">
       <div>
         {<Header /> || <Skeleton />}
+        <Filter />
         <Toggler setTaxes={setTaxes} />
         <div className="p-10">
           <div className=" flex-1 md:flex justify-evenly items-center gap-6">
@@ -101,15 +103,15 @@ function App() {
           <div className=" flex-1 md:flex justify-evenly items-center gap-6">
             <Card houses={houses} taxes={taxes} />
           </div>
-        </div>4v
+        </div>
 
-        <div className="flex justify-center items-center">
-          <div className=" bg-black text-white rounded-full p-2 flex justify-around items-center z-10">
+        <div className=" fixed bottom-2 flex justify-center items-center">
+          <div className=" bg-black text-white rounded-full p-2 flex justify-around items-center ">
             <h3 className="font-bold text-white">Show map</h3>
             <PiFlag className="text-white" />
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </SkeletonTheme>
   );

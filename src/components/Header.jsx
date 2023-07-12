@@ -5,7 +5,7 @@ import { FaUserCircle, FaInternetExplorer } from "react-icons/fa";
 import air from "./airbnb.jpg";
 export default function Header() {
   return (
-    <div className="flex justify-around p-2 shadow-sm items-center sticky top-0 z-10 bg-white">
+    <div className=" hidden md:flex md:justify-around p-2 md: shadow-sm md:items-center md:sticky top-0 md: z-10 bg-white">
       <div>
         {/* <h1 className="text-center  text-[#f25058] font-bold text-2xl">
           Airbnb
