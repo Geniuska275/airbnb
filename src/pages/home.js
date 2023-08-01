@@ -11,10 +11,14 @@ import Footer from "../components/Footer";
 import Filter from "../components/filter";
 import { useDiscount } from "aigbojie-discount";
 import Header from '../components/Header';
-
-function Home() {
+import { logout } from '../Auth/Actions/userActions';
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+function Home({user}) {
     const [taxes, setTaxes] = useState(true);
-  
+    const history=useNavigate()
+
+    console.log(user)
 
   const houses = [
     {
@@ -88,10 +92,14 @@ function Home() {
       time: "Night",
       rate: "5.7",
     },]
+    const {url}=user?.avatar;
   return (
       <div>
-        <Header/>
+        <Header logout={logout} url={url} history={history}/>
         <Filter />
+       
+        
+
         <Toggler setTaxes={setTaxes} />
         <div className="p-10">
           <div className=" flex-1 md:flex justify-evenly items-center gap-6">
@@ -112,5 +120,8 @@ function Home() {
       </div> 
   )
 }
+const mapStateToProps=({session})=>({
+user:session.user
+})
 
-export default Home
+export default connect(mapStateToProps)(Home)

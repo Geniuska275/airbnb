@@ -15,12 +15,14 @@ import { useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Login from "./pages/login";
-import {BrowserRouter as Router,Route,Routes } from "react-router-dom"
+import {BrowserRouter as Router,Routes,Route } from "react-router-dom"
 import Home from "./pages/home";
 import Signup from "./pages/signup";
 import Register from "./pages/register";
-
-function App() {
+import BasicRoute from "./components/BasicRoute";
+import AuthRoute from "./components/AuthRoute";
+import {connect} from "react-redux"
+function App({checked}) {
   const [taxes, setTaxes] = useState(true);
   
 
@@ -99,19 +101,27 @@ function App() {
   ];
   return (
     <Router>
+    {checked &&
     <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/signup" element={<Signup/>}/>
-      <Route path="/register" element={<Register/>}/>
-
-
+    {/* <BasicRoute path="/signup">
+      <Register/>
+    </BasicRoute>
+    <BasicRoute path="/login">
+      <Signup/>
+    </BasicRoute> */}
+    <Route path="/login" element={<Login/>}/>
+    <Route path="/" element={<AuthRoute><Home/></AuthRoute>}/>
     </Routes>
+    }
 
     </Router>
     
      
   );
 }
+ const mapStateToProps=({session})=>(
+  { checked: session.checked}
+ )
 
-export default App;
+ 
+export default connect(mapStateToProps)(App);

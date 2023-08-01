@@ -1,12 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { StyledContainer ,StyledFormButton,StyledFormarea,StyledTitle, StyledsubTitle} from '../components/styles'
 import air from "../components/airbnb.jpg";
 import { Formik,Form } from 'formik';
 import { TextInputs } from '../components/FormLib';
 import { FiEye,FiEyeOff ,FiMail,FiLock} from 'react-icons/fi';
+import {useNavigate} from "react-router-dom"
 import *as Yup from "yup"
 
-function Login() {
+import { connect } from 'react-redux';
+import { loginUser } from '../Auth/Actions/userActions';
+
+function Login({loginUser}) {
+    const history=useNavigate()
+    const[error,setError]=useState()
+    console.log(error)
   return (  
     
 
@@ -17,12 +24,11 @@ function Login() {
             <StyledTitle size={25}>Member Login</StyledTitle>
             <Formik 
              initialValues={{
-                email:"",
-                password:"",
-                deviceId:"",
-                phoneToken: "",
-            deviceInfo: "Chrome 419 on Window 10 10.15 July 27 at 03:12 PM"
-
+                email:"skitetech91@gmail.com",
+                password:"Secret123!",
+                deviceId:"fff",
+                phoneToken: "fff",
+                deviceInfo: "Chrome 419 on Window 10 10.15 July 27 at 03:12 PM"
              }}
              validationSchema={
                 Yup.object({
@@ -33,13 +39,14 @@ function Login() {
 
                 })
              }
-             onSubmit={(values,{setSubmitting})=>{
-                console.log(values)
+             onSubmit={(values,{setSubmitting,setFieldError})=>{   
+                loginUser(values,history,setFieldError,setSubmitting,setError)
              }}
             
             >
-                {()=>(
+                {(error)=>(
                     <Form>
+                    {error && <h1 style={{color:"red",textAlign:"center"}}>Invalid credentials!</h1>}
                         <TextInputs
                             name="email"
                             type="text"
@@ -74,13 +81,8 @@ function Login() {
             </Formik>
         </StyledFormarea>
     </div>
-
     </StyledContainer>
-    
-    
-
-  
   )
 }
 
-export default Login
+export default connect(null,{loginUser})(Login)

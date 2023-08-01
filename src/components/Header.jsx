@@ -3,7 +3,7 @@ import { BiSearch } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaUserCircle, FaInternetExplorer } from "react-icons/fa";
 import air from "./airbnb.jpg";
-export default function Header() {
+export default function Header({logout,url,history}) {
   return (
     <div className=" hidden md:flex md:justify-around p-2 md: shadow-sm md:items-center md:sticky top-0 md: z-10 bg-white">
       <div>
@@ -34,9 +34,14 @@ export default function Header() {
         </div>
         <div className="flex justify-center items-center border border-gray-400  gap-2 rounded-full p-3 hover:shadow-lg cursor-pointer">
           <GiHamburgerMenu className="text-2xl" />
-          <FaUserCircle className="text-2xl" />
+          <img src={url} style={{width:"20px",height:"20px",borderRadius:"50px"}}/>
+          {/* <FaUserCircle className="text-2xl" /> */}
         </div>
       </div>
+      <div style={{display:"flex",justifyContent:"center"}}>
+          <button onClick={()=>logout(history)} style={{backgroundColor:"#f25058",padding:"10px",color:"white",borderRadius:"10px",fontWeight:"bold"}}>logout</button>
+        </div>
+
     </div>
   );
 }

@@ -6,7 +6,11 @@ import { Formik,Form } from 'formik';
 import { TextInputs } from '../components/FormLib';
 import { FiEye,FiEyeOff ,FiMail,FiLock} from 'react-icons/fi';
 import *as Yup from "yup"
-function Register() {
+import { userRegister } from '../Auth/Actions/userActions';
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+function Register({userRegister}) {
+    const history=useNavigate()
   return (
     
     <StyledContainer>
@@ -52,9 +56,9 @@ function Register() {
                 })
              }
 
-             onSubmit={(values,{setSubmitting})=>{
-                console.log(setSubmitting.isSubmitting)
-                console.log(values)
+             onSubmit={(values,{setSubmitting,setFieldError})=>{
+               
+                userRegister(values,history,setSubmitting,setFieldError)
              }}
             
             >
@@ -144,4 +148,4 @@ function Register() {
   )
 }
 
-export default Register
+export default connect(null,{userRegister})(Register)

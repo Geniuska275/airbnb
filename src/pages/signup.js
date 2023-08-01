@@ -5,8 +5,10 @@ import { Formik,Form } from 'formik';
 import { TextInputs } from '../components/FormLib';
 import { FiEye,FiEyeOff ,FiMail,FiLock} from 'react-icons/fi';
 import *as Yup from "yup"
-
+import {connect} from "react-redux"
+import { useNavigate } from 'react-router-dom';
 function Signup() {
+    const history=useNavigate()
   return (  
     
 
