@@ -1,26 +1,19 @@
-import "./App.css";
-import Header from "./components/Header";
-import Card from "./components/card";
-import ButtonPills from "./components/button";
+import React ,{useState}from 'react'
+
+import Card from "../components/card";
+import ButtonPills from "../components/button";
 import { PiFlag } from "react-icons/pi";
-import DefaultCarousel from "./components/carousel";
-import StaticCarousel from "./components/carousel";
-import Navigation from "./components/navigation";
-import Toggler from "./components/toggler";
-import Footer from "./components/Footer";
-import Filter from "./components/filter";
+import DefaultCarousel from "../components/carousel";
+import StaticCarousel from "../components/carousel";
+import Navigation from "../components/navigation";
+import Toggler from "../components/toggler";
+import Footer from "../components/Footer";
+import Filter from "../components/filter";
 import { useDiscount } from "aigbojie-discount";
+import Header from '../components/Header';
 
-import { useState } from "react";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import Login from "./pages/login";
-import {BrowserRouter as Router,Route,Routes } from "react-router-dom"
-import Home from "./pages/home";
-import Signup from "./pages/signup";
-
-function App() {
-  const [taxes, setTaxes] = useState(true);
+function Home() {
+    const [taxes, setTaxes] = useState(true);
   
 
   const houses = [
@@ -94,21 +87,30 @@ function App() {
       amount: "$250",
       time: "Night",
       rate: "5.7",
-    },
-  ];
+    },]
   return (
-    <Router>
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/signup" element={<Signup/>}/>
+      <div>
+        <Header/>
+        <Filter />
+        <Toggler setTaxes={setTaxes} />
+        <div className="p-10">
+          <div className=" flex-1 md:flex justify-evenly items-center gap-6">
+        <Card houses={houses} taxes={taxes} /> 
+          </div>
+          <div className=" flex-1 md:flex justify-evenly items-center gap-6">
+            <Card houses={houses} taxes={taxes} />
+          </div>
+        </div>
 
-    </Routes>
-
-    </Router>
-    
-     
-  );
+        <div className=" fixed bottom-2 flex justify-center items-center">
+          <div className=" bg-black text-white rounded-full p-2 flex justify-around items-center ">
+            <h3 className="font-bold text-white">Show map</h3>
+            <PiFlag className="text-white" />
+          </div>
+        </div>
+        <Footer />
+      </div> 
+  )
 }
 
-export default App;
+export default Home
