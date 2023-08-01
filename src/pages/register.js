@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { StyledContainer ,StyledFormButton,StyledFormarea,StyledTitle, StyledsubTitle} from '../components/styles'
 import air from "../components/airbnb.jpg";
@@ -5,11 +6,9 @@ import { Formik,Form } from 'formik';
 import { TextInputs } from '../components/FormLib';
 import { FiEye,FiEyeOff ,FiMail,FiLock} from 'react-icons/fi';
 import *as Yup from "yup"
-
-function Signup() {
-  return (  
+function Register() {
+  return (
     
-
     <StyledContainer>
     <div style={{marginTop:"10px"}}>
         <StyledFormarea>
@@ -54,11 +53,12 @@ function Signup() {
              }
 
              onSubmit={(values,{setSubmitting})=>{
+                console.log(setSubmitting.isSubmitting)
                 console.log(values)
              }}
             
             >
-                {()=>(
+                {({isSubmitting})=>(
                     <Form>
                         <TextInputs
                             name="companyName"
@@ -131,6 +131,10 @@ function Signup() {
                             icon={<FiLock/>}
                         />
                         <StyledFormButton type="submit" >register</StyledFormButton>
+                        {isSubmitting && (
+
+                        <StyledFormButton type="submit" disabled={true} >registering</StyledFormButton> 
+                        ) }
                     </Form>
                 )}
             </Formik>
@@ -140,4 +144,4 @@ function Signup() {
   )
 }
 
-export default Signup
+export default Register

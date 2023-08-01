@@ -33,7 +33,7 @@ export const TextInputs=({icon,...props})=>{
             {icon}
         </StyledIcon>
 
-       {props.type==="password" && (<StyledIcon onClick={()=>setShow(!show)} right={true}>
+       {props.type==="password" && (<StyledIcon onClick={()=>setShow(!show)} right="true">
         {show && <FiEye/>}
         {!show && <FiEyeOff/>}
 
